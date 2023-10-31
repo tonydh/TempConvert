@@ -26,16 +26,16 @@ function convertToCelsius(fahren) {
  * @param {number} celc
  */
 function createMessage(fahren, celc) {
-    // checking fahren temps and returning a message based on the chart
-    if(fahren < 32 || celc < 32) {
-      return `very cold`;
-    } else if (fahren < 64 || celc < 64) {
-      return `cold`;
-    } else if (fahren < 86 || celc < 86) {
-      return `warm`;
-    } else {
-      return `hot`;
-    }
+  // checking fahren temps and returning a message based on the chart
+  if(fahren < 32) {
+    return `very cold`;
+  } else if (fahren < 64) {
+    return `cold`;
+  } else if (fahren < 86) {
+    return `warm`;
+  } else {
+    return `hot`;
+  }
 }
 
 /**
@@ -44,8 +44,9 @@ function createMessage(fahren, celc) {
  * @returns {number} a number between 0 and the int passed in
  */
 function rand(limit) {
+  limit = Math.random() * 100;
   let randomNumber = Math.round(Math.random() * limit);
-  return randomNumber;
+  console.log(randomNumber);
 }
 
 // -------------------- DO NOT CHANGE THE CODE BELOW ---------------------- //
@@ -72,13 +73,4 @@ console.log(output);
 fahren = rand(110);
 celc = convertToCelsius(fahren);
 output = createMessage(fahren, celc);
-console.log(output);
-
-// -------------------- DO NOT CHANGE THE CODE ABOVE ---------------------- //
-
-/* test for function rand */
-let limit = prompt(
-    'enter a random number, we will set it as the limit for an even newer random number'
-);
-output = rand(limit);
 console.log(output);
